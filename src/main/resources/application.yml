@@ -1,0 +1,199 @@
+# DataSource Config
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://drdsusrzd75810yi.drds.cloud.certyun.cn:3306/company?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+#    username: zktjread
+#    password: zktj@Golaxy123
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8082
+
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: true #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://drdsusrzd75810yi.drds.cloud.certyun.cn:3306/company?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+          username: zktjread
+          password: zktj@Golaxy123
+          driver-class-name: com.mysql.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+        slave_1:
+          url: jdbc:mysql://localhost:3306/company-1
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+            #测试连接
+#            validation-query: SELECT 1 FROM DUAL
+#            #申请连接的时候检测，建议配置为true，不影响性能，并且保证安全
+#            test-while-idle: true
+#            #获取连接时执行检测，建议关闭，影响性能
+#            test-on-borrow: false
+#            #归还连接时执行检测，建议关闭，影响性能
+#            test-on-return: false
+#            #是否开启PSCache，PSCache对支持游标的数据库性能提升巨大，oracle建议开启，mysql下建议关闭
+#            pool-prepared-statements: true
+#            #开启poolPreparedStatements后生效
+#            max-pool-prepared-statement-per-connection-size: 20
+#            #配置扩展插件，常用的插件有=>stat:监控统计  log4j:日志  wall:防御sql注入
+#            filters: stat,wall,slf4j
+#            #打开mergeSql功能；慢SQL记录
+#            connection-properties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+#            #配置DruidStatFilter
+#            web-stat-filter:
+#              enabled: true
+#              url-pattern: "/*"
+#              exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+#            #配置DruidStatViewServlet
+#            stat-view-servlet:
+#              url-pattern: "/druid/*"
+#              #IP白名单(没有配置或者为空，则允许所有访问)
+#              allow: 127.0.0.1,192.168.163.1
+#              #IP黑名单 (存在共同时，deny优先于allow)
+#              deny: 192.168.1.73
+#              # 禁用HTML页面上的“Reset All”功能
+#              reset-enable: false
+#              #登录名
+#              login-username: root
+#              #登录密码
+#              login-password: root
+        slave_2:
+          url: jdbc:mysql://localhost:3306/company-2
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+        slave_3:
+          url: jdbc:mysql://localhost:3306/company-3
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+        slave_4:
+          url: jdbc:mysql://localhost:3306/company-4
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+        slave_5:
+          url: jdbc:mysql://localhost:3306/company-5
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+#        slave_6:
+#          url: jdbc:mysql://localhost:3306/company-6
+#          username: root
+#          password: root
+#          driver-class-name: com.mysql.jdbc.Driver
+#        slave_7:
+#          url: jdbc:mysql://localhost:3306/company-7
+#          username: root
+#          password: root
+#          driver-class-name: com.mysql.jdbc.Driver
+#        slave_8:
+#          url: jdbc:mysql://localhost:3306/company-8
+#          username: root
+#          password: root
+#          driver-class-name: com.mysql.jdbc.Driver
+#        slave_9:
+#          url: jdbc:mysql://localhost:3306/company-9
+#          username: root
+#          password: root
+#          driver-class-name: com.mysql.jdbc.Driver
+        slave_10:
+          url: jdbc:mysql://localhost:3306/company-10
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          druid:
+            #初始化连接池大小
+            initial-size: 5
+            #配置最小连接数
+            min-idle: 5
+            #配置最大连接数
+            max-active: 20
+            #配置连接等待超时时间
+            max-wait: 60000
+            #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            time-between-eviction-runs-millis: 60000
+            #配置一个连接在池中最小生存的时间，单位是毫秒
+            min-evictable-idle-time-millis: 300000
